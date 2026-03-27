@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UrbanStore | Complete E-commerce Website</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ============================================
+       COMPLETE E-COMMERCE WEBSITE - ALL IN ONE
+       HTML & CSS ONLY - FULLY FUNCTIONAL
+       ============================================ */
+
+      /* GLOBAL RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.5;
+        color: #1e293b;
+        background-color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ========== HEADER & NAVIGATION ========== */
+      .main-header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 24px;
+        flex-wrap: wrap;
+      }
+
+      .logo a {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #1e293b;
+        text-decoration: none;
+        letter-spacing: -0.5px;
+        transition: color 0.3s ease;
+      }
+
+      .logo a:hover {
+        color: #3b82f6;
+      }
+
+      .logo i {
+        color: #3b82f6;
+        margin-right: 8px;
+      }
+
+      .navbar ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        font-size: 1rem;
+        position: relative;
+      }
+
+      .navbar a:hover,
+      .navbar a.active {
+        color: #3b82f6;
+      }
+
+      .navbar a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #3b82f6;
+        transition: width 0.3s ease;
+      }
+
+      .navbar a:hover::after,
+      .navbar a.active::after {
+        width: 100%;
+      }
+
+      .cart-icon {
+        position: relative;
+        font-size: 1.4rem;
+        color: #1e293b;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+
+      .cart-icon:hover {
+        color: #3b82f6;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -10px;
+        right: -12px;
+        background-color: #3b82f6;
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 600;
+        border-radius: 50%;
+        padding: 2px 6px;
+        min-width: 18px;
+        text-align: center;
+      }
+
+      /* ========== BUTTONS ========== */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #3b82f6;
+        color: white;
+        padding: 12px 32px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn-primary:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: transparent;
+        color: #3b82f6;
+        padding: 10px 24px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid #3b82f6;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background-color: #3b82f6;
+        color: white;
+      }
+
+      /* ========== HERO SECTION ========== */
+      .hero {
+        position: relative;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        padding: 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      /* ========== FEATURED SECTION ========== */
+      .featured {
+        padding: 80px 0;
+        background-color: #f8fafc;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+        color: #0f172a;
+        margin-bottom: 8px;
+      }
+
+      .section-title p {
+        color: #64748b;
+        font-size: 1.1rem;
+      }
+
+      /* PRODUCT GRID */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 32px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-img {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+      }
+
+      .product-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-img img {
+        transform: scale(1.08);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #3b82f6;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 2;
+      }
+
+      .product-badge.sale {
+        background: #ef4444;
+      }
+
+      .quick-view {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        background: rgba(59, 130, 246, 0.95);
+        color: white;
+        text-align: center;
+        padding: 12px;
+        font-weight: 500;
+        transition: bottom 0.3s ease;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+      }
+
+      .product-card:hover .quick-view {
+        bottom: 0;
+      }
+
+      .product-info {
+        padding: 20px;
+      }
+
+      .product-category {
+        font-size: 0.75rem;
+        color: #3b82f6;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .product-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        color: #0f172a;
+      }
+
+      .price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #3b82f6;
+        margin: 12px 0;
+      }
+
+      .rating {
+        margin-bottom: 12px;
+        color: #fbbf24;
+        font-size: 0.85rem;
+      }
+
+      .add-to-cart {
+        width: 100%;
+        background: #f1f5f9;
+        border: none;
+        padding: 12px;
+        border-radius: 40px;
+        font-weight: 600;
+        color: #1e293b;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+      }
+
+      .add-to-cart:hover {
+        background: #3b82f6;
+        color: white;
+      }
+
+      /* ========== PAGE BANNER ========== */
+      .page-banner {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+      }
+
+      .page-banner h1 {
+        font-size: 3rem;
+        margin-bottom: 16px;
+      }
+
+      /* ========== SHOP PAGE ========== */
+      .shop-main {
+        padding: 60px 0;
+      }
+
+      .shop-filters {
+        background: #f8fafc;
+        padding: 24px 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .filter-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .filter-group {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .filter-select {
+        padding: 8px 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-family: "Inter", sans-serif;
+        background: white;
+        cursor: pointer;
+      }
+
+      /* ========== PRODUCT DETAIL PAGE ========== */
+      .product-detail-section {
+        padding: 60px 0;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+        margin-bottom: 60px;
+      }
+
+      .detail-img {
+        background: #f8fafc;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      .detail-img img {
+        width: 100%;
+        height: auto;
+      }
+
+      .detail-info h2 {
+        font-size: 2rem;
+        margin-bottom: 12px;
+      }
+
+      .detail-price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #3b82f6;
+        margin-bottom: 24px;
+      }
+
+      .detail-description ul {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      .detail-description li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .detail-description i {
+        color: #3b82f6;
+      }
+
+      /* ========== CONTACT PAGE ========== */
+      .contact-main {
+        padding: 60px 0;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 48px;
+      }
+
+      .contact-info-card,
+      .contact-form-card {
+        background: white;
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+      }
+
+      .contact-info-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .contact-info-card p {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #475569;
+      }
+
+      .contact-info-card i {
+        width: 24px;
+        color: #3b82f6;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+      }
+
+      .submit-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* ========== CART PAGE ========== */
+      .cart-main {
+        padding: 60px 0;
+      }
+
+      .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+      }
+
+      .cart-table th,
+      .cart-table td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .cart-table th {
+        background: #f8fafc;
+        font-weight: 600;
+      }
+
+      .cart-summary {
+        background: #f8fafc;
+        padding: 24px;
+        border-radius: 16px;
+        text-align: right;
+      }
+
+      .cart-summary h3 {
+        margin-bottom: 16px;
+      }
+
+      .cart-total {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #3b82f6;
+        margin: 16px 0;
+      }
+
+      /* ========== FOOTER ========== */
+      .main-footer {
+        background-color: #0f172a;
+        color: #cbd5e1;
+        margin-top: 60px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+        padding: 60px 24px 40px;
+      }
+
+      .footer-col h3,
+      .footer-col h4 {
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-col ul li a {
+        color: #cbd5e1;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer-col ul li a:hover {
+        color: #3b82f6;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 16px;
+      }
+
+      .social-icons a {
+        color: #cbd5e1;
+        font-size: 1.2rem;
+        transition: color 0.2s ease;
+      }
+
+      .social-icons a:hover {
+        color: #3b82f6;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding: 24px;
+        border-top: 1px solid #1e293b;
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 768px) {
+        .navbar ul {
+          gap: 1rem;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .detail-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .filter-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .cart-table {
+          display: block;
+          overflow-x: auto;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-container {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        .navbar {
+          order: 3;
+          width: 100%;
+        }
+
+        .navbar ul {
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-container {
+        animation: fadeIn 0.4s ease;
+      }
+
+      /* Checkbox styling for cart */
+      .quantity-input {
+        width: 60px;
+        padding: 6px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .remove-link {
+        color: #ef4444;
+        text-decoration: none;
+      }
+
+      .remove-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================ -->
+    <!-- HOME PAGE SECTION -->
+    <!-- ============================================ -->
+    <div id="home" class="page-container">
+      <header class="main-header">
+        <div class="container nav-container">
+          <div class="logo">
+            <a href="#home"><i class="fas fa-store"></i> UrbanStore</a>
+          </div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="#home" class="active">Home</a></li>
+              <li><a href="#shop">Shop</a></li>
+              <li><a href="#product-detail">Product Detail</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#cart">Cart</a></li>
+            </ul>
+          </nav>
+          <a href="#cart" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">3</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Fresh Styles, Delivered Fast</h1>
+            <p>
+              Discover the latest trends in fashion, electronics & homeware.
+              Exclusive online offers.
+            </p>
+            <a href="#shop" class="btn-primary"
+              >Shop Now <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </section>
+
+        <section class="featured">
+          <div class="container">
+            <div class="section-title">
+              <h2>Featured Products</h2>
+              <p>Handpicked just for you</p>
+            </div>
+            <div class="product-grid">
+              <div class="product-card">
+                <div class="product-img">
+                  <img
+                    src="img/shoe.jpeg"
+                    alt="Urban Sneakers"
+                  />
+                  <a href="#product-detail" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Footwear</span>
+                  <h3>Urban Sneakers</h3>
+                  <div class="rating">★★★★☆ <span>(128)</span></div>
+                  <div class="price">$79.99</div>
+                  <a href="#cart" class="add-to-cart"
+                    ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img">
+                  <img
+                    src="img/jacket.jpeg"
+                    alt="Slim Fit Jacket"
+                  />
+                  <div class="product-badge sale">SALE</div>
+                  <a href="#product-detail" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Clothing</span>
+                  <h3>Slim Fit Jacket</h3>
+                  <div class="rating">★★★★★ <span>(94)</span></div>
+                  <div class="price">$119.99</div>
+                  <a href="#cart" class="add-to-cart"
+                    ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img">
+                  <img
+                    src="img/headphone.jpeg"
+                    alt="Wireless Headphones"
+                  />
+                  <div class="product-badge">NEW</div>
+                  <a href="#product-detail" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Electronics</span>
+                  <h3>Wireless Headphones</h3>
+                  <div class="rating">★★★★☆ <span>(256)</span></div>
+                  <div class="price">$99.99</div>
+                  <a href="#cart" class="add-to-cart"
+                    ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                  >
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img">
+                  <img
+                    src="img/watch.jpg"
+                    alt="Minimalist Watch"
+                  />
+                  <div class="product-badge sale">SALE</div>
+                  <a href="#product-detail" class="quick-view">Quick View</a>
+                </div>
+                <div class="product-info">
+                  <span class="product-category">Accessories</span>
+                  <h3>Minimalist Watch</h3>
+                  <div class="rating">★★★★☆ <span>(67)</span></div>
+                  <div class="price">$149.99</div>
+                  <a href="#cart" class="add-to-cart"
+                    ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SHOP PAGE -->
+    <!-- ============================================ -->
+    <div id="shop" class="page-container" style="display: none">
+      <header class="main-header">
+        <div class="container nav-container">
+          <div class="logo">
+            <a href="#home"><i class="fas fa-store"></i> UrbanStore</a>
+          </div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#shop" class="active">Shop</a></li>
+              <li><a href="#product-detail">Product Detail</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#cart">Cart</a></li>
+            </ul>
+          </nav>
+          <a href="#cart" class="cart-icon"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="cart-count">3</span></a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section class="page-banner">
+          <div class="container">
+            <h1>Our Collection</h1>
+            <p>Explore premium products curated just for you</p>
+          </div>
+        </section>
+
+        <section class="shop-filters">
+          <div class="container filter-container">
+            <div class="filter-group">
+              <span class="filter-label"
+                ><i class="fas fa-filter"></i> Filter:</span
+              >
+              <select class="filter-select">
+                <option>All Categories</option>
+                <option>Footwear</option>
+                <option>Clothing</option>
+                <option>Electronics</option>
+              </select>
+              <select class="filter-select">
+                <option>Sort by: Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+              </select>
+            </div>
+            <div class="results-count">Showing 12 products</div>
+          </div>
+        </section>
+
+        <section class="shop-main container">
+          <div class="product-grid">
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="img/shoe.jpeg"
+                  alt="Product"
+                /><a href="#product-detail" class="quick-view">Quick View</a>
+              </div>
+              <div class="product-info">
+                <span class="product-category">Footwear</span>
+                <h3>Urban Sneakers</h3>
+                <div class="price">$79.99</div>
+                <a href="#cart" class="add-to-cart"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="img/jacket.jpeg"
+                  alt="Product"
+                />
+                <div class="product-badge sale">SALE</div>
+                <a href="#product-detail" class="quick-view">Quick View</a>
+              </div>
+              <div class="product-info">
+                <span class="product-category">Clothing</span>
+                <h3>Slim Fit Jacket</h3>
+                <div class="price">$119.99</div>
+                <a href="#cart" class="add-to-cart"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="img/headphone.jpeg"
+                  alt="Product"
+                />
+                <div class="product-badge">NEW</div>
+                <a href="#product-detail" class="quick-view">Quick View</a>
+              </div>
+              <div class="product-info">
+                <span class="product-category">Electronics</span>
+                <h3>Wireless Headphones</h3>
+                <div class="price">$99.99</div>
+                <a href="#cart" class="add-to-cart"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="img/watch.jpg"
+                  alt="Product"
+                />
+                <div class="product-badge sale">SALE</div>
+                <a href="#product-detail" class="quick-view">Quick View</a>
+              </div>
+              <div class="product-info">
+                <span class="product-category">Accessories</span>
+                <h3>Minimalist Watch</h3>
+                <div class="price">$149.99</div>
+                <a href="#cart" class="add-to-cart"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="img/jacket.jpeg"
+                  alt="Product"
+                /><a href="#product-detail" class="quick-view">Quick View</a>
+              </div>
+              <div class="product-info">
+                <span class="product-category">Accessories</span>
+                <h3>Leather Backpack</h3>
+                <div class="price">$89.99</div>
+                <a href="#cart" class="add-to-cart"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img">
+                <img
+                  src="img/headphone.jpeg"
+                  alt="Product"
+                /><a href="#product-detail" class="quick-view">Quick View</a>
+              </div>
+              <div class="product-info">
+                <span class="product-category">Electronics</span>
+                <h3>Smart LED Lamp</h3>
+                <div class="price">$39.99</div>
+                <a href="#cart" class="add-to-cart"
+                  ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PRODUCT DETAIL PAGE -->
+    <!-- ============================================ -->
+    <div id="product-detail" class="page-container" style="display: none">
+      <header class="main-header">
+        <div class="container nav-container">
+          <div class="logo">
+            <a href="#home"><i class="fas fa-store"></i> UrbanStore</a>
+          </div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#shop">Shop</a></li>
+              <li>
+                <a href="#product-detail" class="active">Product Detail</a>
+              </li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#cart">Cart</a></li>
+            </ul>
+          </nav>
+          <a href="#cart" class="cart-icon"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="cart-count">3</span></a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section class="product-detail-section container">
+          <div class="detail-grid">
+            <div class="detail-img">
+              <img
+                src="img/shoe.jpeg"
+                alt="Urban Sneakers"
+              />
+            </div>
+            <div class="detail-info">
+              <h2>Urban Sneakers</h2>
+              <div class="detail-price">$79.99</div>
+              <div class="detail-description">
+                <p>
+                  Elevate your everyday style with these premium sneakers.
+                  Breathable fabric, durable sole, and a modern silhouette.
+                </p>
+                <ul>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Premium quality
+                    materials
+                  </li>
+                  <li>
+                    <i class="fas fa-check-circle"></i> Free shipping & returns
+                  </li>
+                  <li><i class="fas fa-check-circle"></i> 1-year warranty</li>
+                </ul>
+              </div>
+              <a href="#cart" class="btn-primary detail-add-btn"
+                ><i class="fas fa-shopping-cart"></i> Add to Cart</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- CONTACT PAGE -->
+    <!-- ============================================ -->
+    <div id="contact" class="page-container" style="display: none">
+      <header class="main-header">
+        <div class="container nav-container">
+          <div class="logo">
+            <a href="#home"><i class="fas fa-store"></i> UrbanStore</a>
+          </div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#shop">Shop</a></li>
+              <li><a href="#product-detail">Product Detail</a></li>
+              <li><a href="#contact" class="active">Contact</a></li>
+              <li><a href="#cart">Cart</a></li>
+            </ul>
+          </nav>
+          <a href="#cart" class="cart-icon"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="cart-count">3</span></a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section class="page-banner">
+          <div class="container">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you</p>
+          </div>
+        </section>
+        <section class="contact-main container">
+          <div class="contact-grid">
+            <div class="contact-info-card">
+              <h3><i class="fas fa-store"></i> Store Information</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> 123 Commerce Street, New
+                York, NY 10001
+              </p>
+              <p><i class="fas fa-phone-alt"></i> +1 (555) 789-0123</p>
+              <p><i class="fas fa-envelope"></i> support@urbanstore.com</p>
+              <p><i class="fas fa-clock"></i> Mon - Fri: 9AM - 8PM</p>
+            </div>
+            <div class="contact-form-card">
+              <form action="#" method="POST">
+                <div class="form-group">
+                  <label>Full Name</label
+                  ><input type="text" placeholder="John Doe" required />
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label
+                  ><input
+                    type="email"
+                    placeholder="hello@example.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Message</label
+                  ><textarea
+                    rows="5"
+                    placeholder="How can we help you?"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-primary submit-btn">
+                  Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- CART PAGE -->
+    <!-- ============================================ -->
+    <div id="cart" class="page-container" style="display: none">
+      <header class="main-header">
+        <div class="container nav-container">
+          <div class="logo">
+            <a href="#home"><i class="fas fa-store"></i> UrbanStore</a>
+          </div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#shop">Shop</a></li>
+              <li><a href="#product-detail">Product Detail</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#cart" class="active">Cart</a></li>
+            </ul>
+          </nav>
+          <a href="#cart" class="cart-icon"
+            ><i class="fas fa-shopping-cart"></i
+            ><span class="cart-count">3</span></a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section class="page-banner">
+          <div class="container">
+            <h1>Shopping Cart</h1>
+            <p>Review your items before checkout</p>
+          </div>
+        </section>
+        <section class="cart-main container">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Urban Sneakers</strong></td>
+                <td>$79.99</td>
+                <td>
+                  <input
+                    type="number"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                  />
+                </td>
+                <td>$79.99</td>
+                <td><a href="#" class="remove-link">Remove</a></td>
+              </tr>
+              <tr>
+                <td><strong>Slim Fit Jacket</strong></td>
+                <td>$119.99</td>
+                <td>
+                  <input
+                    type="number"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                  />
+                </td>
+                <td>$119.99</td>
+                <td><a href="#" class="remove-link">Remove</a></td>
+              </tr>
+              <tr>
+                <td><strong>Wireless Headphones</strong></td>
+                <td>$99.99</td>
+                <td>
+                  <input
+                    type="number"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                  />
+                </td>
+                <td>$99.99</td>
+                <td><a href="#" class="remove-link">Remove</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <p>Subtotal: $299.97</p>
+            <p>Shipping: Free</p>
+            <p>Tax: $24.00</p>
+            <div class="cart-total">Total: $323.97</div>
+            <a href="#checkout" class="btn-primary"
+              >Proceed to Checkout <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FOOTER (Shared) -->
+    <!-- ============================================ -->
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-store"></i> UrbanStore</h3>
+          <p>Your one-stop shop for modern essentials.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#product-detail">Product Detail</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#cart">Cart</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Commerce St, NY 10001</p>
+          <p><i class="fas fa-phone"></i> +1 (555) 789-0123</p>
+          <p><i class="fas fa-envelope"></i> hello@urbanstore.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a
+            ><a href="#"><i class="fab fa-instagram"></i></a
+            ><a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 UrbanStore. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Simple navigation script for page switching (pure HTML/CSS needs anchor navigation) -->
+    <script>
+      // This script enables smooth page switching without reload - enhances UX
+      // All core functionality works with HTML/CSS; this just handles the multi-page feel
+      const pages = {
+        home: document.getElementById("home"),
+        shop: document.getElementById("shop"),
+        "product-detail": document.getElementById("product-detail"),
+        contact: document.getElementById("contact"),
+        cart: document.getElementById("cart"),
+      };
+
+      function showPage(pageId) {
+        Object.values(pages).forEach((page) => {
+          if (page) page.style.display = "none";
+        });
+        if (pages[pageId]) pages[pageId].style.display = "block";
+        window.scrollTo(0, 0);
+
+        // Update active nav links
+        document.querySelectorAll(".navbar a").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${pageId}`)
+            link.classList.add("active");
+        });
+      }
+
+      // Handle navigation clicks
+      document
+        .querySelectorAll(".navbar a, .logo a, .cart-icon")
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+            if (href && href.startsWith("#")) {
+              e.preventDefault();
+              const pageName = href.substring(1);
+              if (pages[pageName]) showPage(pageName);
+            }
+          });
+        });
+
+      // Handle all "Add to Cart" and "Quick View" links
+      document
+        .querySelectorAll(".add-to-cart, .quick-view, .btn-primary")
+        .forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const href = btn.getAttribute("href");
+            if (
+              href &&
+              href.startsWith("#") &&
+              (href === "#cart" || href === "#product-detail")
+            ) {
+              e.preventDefault();
+              const pageName = href.substring(1);
+              if (pages[pageName]) showPage(pageName);
+            }
+          });
+        });
+
+      // Show home by default
+      showPage("home");
+    </script>
+  </body>
+</html>
